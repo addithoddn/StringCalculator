@@ -1,0 +1,2 @@
+#!/bin/bash
+java -classpath "src/main/resources/junit-4.11.jar;classes;src/main/resources/hamcrest-core-1.4-atlassian-1.jar" org.junit.runner.JUnitCore is.ru.hugb.CalculatorTest

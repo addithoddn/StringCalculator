@@ -1,0 +1,2 @@
+#!/bin/bash
+javac -d classes src/main/java/is/ru/hugb/StringCalculator.java

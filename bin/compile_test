@@ -1,0 +1,2 @@
+#!/bin/bash
+javac -classpath "src/main/resources/junit-4.11.jar;classes" -d classes src/main/java/is/ru/hugb/CalculatorTest.java
