@@ -14,6 +14,10 @@ public class StringCalculator
 		}
 		else
 		{
+			if(text.contains("\n"))
+			{
+				text = text.replaceAll("\n", ",");
+			}
 			if(text.contains(","))
 			{
 				String numbers[] = text.split(",");
@@ -27,7 +31,7 @@ public class StringCalculator
 	{
 		return Integer.parseInt(number);
 	}
-	
+
 	private static int sum(String[] numbers)
 	{
 		int total = 0;
