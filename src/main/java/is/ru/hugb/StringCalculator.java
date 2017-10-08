@@ -37,7 +37,15 @@ public class StringCalculator
 		int total = 0;
 		for(String number : numbers)
 		{
-			total += toInt(number);
+			int numberToAdd = toInt(number);
+			if(numberToAdd < 0) 
+			{
+				throw new IllegalArgumentException("-1");
+			}
+			else
+			{
+				total += numberToAdd;
+			}
 		}
 		return total;
 	}

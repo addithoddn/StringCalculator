@@ -1,9 +1,15 @@
 package is.ru.hugb;
 
 import static org.junit.Assert.assertEquals;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 public class CalculatorTest
 {
+
+	@Rule
+    public ExpectedException thrown = ExpectedException.none();
+
 	@Test
 	public void testEmptyString()
 	{
@@ -30,5 +36,12 @@ public class CalculatorTest
 	public void testNewLineInString()
 	{
 		assertEquals(6, StringCalculator.add("1,2\n3"));
+	}
+
+	@Test
+	public void testNegativeNumbers()
+	{
+		thrown.expect(IllegalArgumentException.class);
+		StringCalculator.add("-1,2");
 	}
 }
