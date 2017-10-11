@@ -61,6 +61,10 @@ public class StringCalculator
 			{
 				gatherNegatives(numbers);
 			}
+			else if(numberToAdd > 1000)
+			{
+				continue;
+			}
 			else
 			{
 				total += numberToAdd;

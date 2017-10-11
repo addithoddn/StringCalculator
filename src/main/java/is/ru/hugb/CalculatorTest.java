@@ -50,4 +50,9 @@ public class CalculatorTest
 		thrown.expectMessage("Negatives not allowed: -3, -2");
 		StringCalculator.add("-3,2,-2,3");
 	}
+	@Test
+	public void testBigNumbers()
+	{
+		assertEquals(7,StringCalculator.add("10002,3,10003,4"));
+	}
 }
