@@ -35,18 +35,30 @@ public class StringCalculator
 	private static int sum(String[] numbers)
 	{
 		int total = 0;
+		boolean negative = false;
+		StringBuilder builder = new StringBuilder();
 		for(String number : numbers)
 		{
 			int numberToAdd = toInt(number);
 			if(numberToAdd < 0) 
 			{
-				throw new IllegalArgumentException("-1");
+				if(builder.length() != 0)
+				{
+					builder.append(", ");
+				}
+				negative = true;
+				builder.append(number);
+				
 			}
 			else
 			{
 				total += numberToAdd;
 			}
 		}
+		if(negative)
+			{
+				throw new IllegalArgumentException("Negatives not allowed " + builder);
+			}
 		return total;
 	}
 }
