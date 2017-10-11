@@ -32,33 +32,40 @@ public class StringCalculator
 		return Integer.parseInt(number);
 	}
 
+	private static void gatherNegatives(String[] numbers)
+	{
+		StringBuilder builder = new StringBuilder();
+		for(String number : numbers)
+		{
+			if(toInt(number) < 0)
+			{	
+				if(builder.length() != 0)
+				{
+					builder.append(", ");
+				}
+				builder.append(number);
+			}
+		}
+		throw new IllegalArgumentException("Negatives not allowed: " + builder);
+	}
+
 	private static int sum(String[] numbers)
 	{
 		int total = 0;
 		boolean negative = false;
-		StringBuilder builder = new StringBuilder();
+		
 		for(String number : numbers)
 		{
 			int numberToAdd = toInt(number);
 			if(numberToAdd < 0) 
 			{
-				if(builder.length() != 0)
-				{
-					builder.append(", ");
-				}
-				negative = true;
-				builder.append(number);
-				
+				gatherNegatives(numbers);
 			}
 			else
 			{
 				total += numberToAdd;
 			}
 		}
-		if(negative)
-			{
-				throw new IllegalArgumentException("Negatives not allowed " + builder);
-			}
 		return total;
 	}
 }

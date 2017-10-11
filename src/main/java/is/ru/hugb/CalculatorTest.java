@@ -47,7 +47,7 @@ public class CalculatorTest
 	@Test
 	public void testMultipleNegativeNumbers()
 	{
-		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage("Negatives not allowed: -3, -2");
 		StringCalculator.add("-3,2,-2,3");
 	}
 }
