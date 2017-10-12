@@ -14,16 +14,19 @@ public class StringCalculator
 		}
 		else
 		{
+			String delimeter = ",";
+			if( text.charAt(0) == '/')
+			{
+				delimeter = Character.toString(text.charAt(2));
+				text = text.substring(4, text.length());
+			}
 			if(text.contains("\n"))
 			{
-				text = text.replaceAll("\n", ",");
+				text = text.replaceAll("\n", delimeter);
 			}
-			if(text.contains(","))
-			{
-				String numbers[] = text.split(",");
-				return sum(numbers);
-			}
-			return 1;
+			
+			String numbers[] = text.split(delimeter);
+			return sum(numbers);	
 		}
 	}
 
@@ -56,6 +59,10 @@ public class StringCalculator
 		
 		for(String number : numbers)
 		{
+			if(number == "")
+			{
+				continue;
+			}
 			int numberToAdd = toInt(number);
 			if(numberToAdd < 0) 
 			{
