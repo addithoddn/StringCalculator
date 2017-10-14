@@ -14,20 +14,24 @@ public class StringCalculator
 		}
 		else
 		{
-			String delimeter = ",";
-			if( text.charAt(0) == '/')
-			{
-				delimeter = Character.toString(text.charAt(2));
-				text = text.substring(4, text.length());
-			}
-			if(text.contains("\n"))
-			{
-				text = text.replaceAll("\n", delimeter);
-			}
-			
-			String numbers[] = text.split(delimeter);
+			String[] numbers = delimeterHandling(text);
 			return sum(numbers);	
 		}
+	}
+
+	private static String[] delimeterHandling(String text)
+	{
+		String delimeter = ",";
+		if( text.charAt(0) == '/')
+		{
+			delimeter = Character.toString(text.charAt(2));
+			text = text.substring(4, text.length());
+		}
+		if(text.contains("\n"))
+		{
+			text = text.replaceAll("\n", delimeter);
+		}
+		return text.split(delimeter);
 	}
 
 	private static int toInt(String number)
