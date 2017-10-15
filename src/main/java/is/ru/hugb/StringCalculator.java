@@ -25,27 +25,20 @@ public class StringCalculator
 		StringBuilder builder = new StringBuilder();
 		if( text.charAt(0) == '/')
 		{
-			String[] delimeterText = text.split("\n");
-			delimeter = delimeterText[0].substring(2, delimeterText[0].length());
-			for(String string : delimeterText)
-			{
-				if(string.charAt(0) == '/')
-				{
-					continue;
-				}
-				else if(builder.length() != 0)
-				{
-					builder.append("\n");
-				}
-				builder.append(string);
-			}
-			text = new String(builder);
+			delimeter = getDelimeter(text);
+			text = text.substring(delimeter.length() + 3, text.length());
 		}
 		if(text.contains("\n"))
 		{
 			text = text.replaceAll("\n", delimeter);
 		}
 		return text.split(delimeter);
+	}
+
+	private static String getDelimeter(String text)
+	{
+		String[] delimeterText = text.split("\n");
+		return delimeterText[0].substring(2, delimeterText[0].length());
 	}
 
 	private static int toInt(String number)
