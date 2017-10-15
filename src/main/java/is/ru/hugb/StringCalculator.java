@@ -22,10 +22,24 @@ public class StringCalculator
 	private static String[] delimeterHandling(String text)
 	{
 		String delimeter = ",";
+		StringBuilder builder = new StringBuilder();
 		if( text.charAt(0) == '/')
 		{
-			delimeter = Character.toString(text.charAt(2));
-			text = text.substring(4, text.length());
+			String[] delimeterText = text.split("\n");
+			delimeter = delimeterText[0].substring(2, delimeterText[0].length());
+			for(String string : delimeterText)
+			{
+				if(string.charAt(0) == '/')
+				{
+					continue;
+				}
+				else if(builder.length() != 0)
+				{
+					builder.append("\n");
+				}
+				builder.append(string);
+			}
+			text = new String(builder);
 		}
 		if(text.contains("\n"))
 		{

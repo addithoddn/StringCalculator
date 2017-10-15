@@ -63,5 +63,6 @@ public class CalculatorTest
 		assertEquals(12,StringCalculator.add("//&\n1001\n4&4\n4"));
 		assertEquals(18,StringCalculator.add("//!\n3!4!1054!11"));
 		assertEquals(22,StringCalculator.add("//%\n3%4%5%6%4"));
+		assertEquals(22,StringCalculator.add("//f%\n3f%4f%5f%6f%4"));
 	}
 }
